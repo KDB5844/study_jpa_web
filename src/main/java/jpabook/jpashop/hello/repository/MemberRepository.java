@@ -1,6 +1,5 @@
 package jpabook.jpashop.hello.repository;
 
-import jpabook.jpashop.hello.domain.Member;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -12,13 +11,13 @@ public class MemberRepository {
     @PersistenceContext
     private EntityManager em;
 
-    public Long save(Member member) {
-        em.persist(member);
-        return member.getId();
-    }
-
-    public Member findById(Long id) {
-        return em.find(Member.class, id);
-    }
+//    public Long save(Member member) {
+//        em.persist(member);
+//        return member.getId();
+//    }
+//
+//    public Member findById(Long id) {
+//        return em.find(Member.class, id);
+//    }
 
 }
