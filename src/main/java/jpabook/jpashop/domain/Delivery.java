@@ -1,11 +1,14 @@
 package jpabook.jpashop.domain;
 
 import jpabook.jpashop.domain.embedded.Address;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 import static javax.persistence.FetchType.LAZY;
 
+@Getter @Setter
 @Entity
 public class Delivery {
 
