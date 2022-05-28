@@ -35,7 +35,6 @@ class MemberServiceTest {
         Long savedId = memberService.join(member);
 
         // then
-        em.flush();
         assertEquals(member, memberRepository.findOne(savedId));
     }
 
@@ -45,11 +44,11 @@ class MemberServiceTest {
         Member member1 = new Member();
         member1.setName("member1");
 
-        Long savedId1 = memberService.join(member1);
-
-        // when
         Member member2 = new Member();
         member2.setName("member1");
+
+        // when
+        Long savedId1 = memberService.join(member1);
 
         // then
         assertThrows(IllegalStateException.class, () -> {
