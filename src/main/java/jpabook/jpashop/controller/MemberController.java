@@ -12,12 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/members")
@@ -34,13 +31,25 @@ public class MemberController {
     }
 
     @PostMapping("/new")
-    public String createMember(@Valid @ModelAttribute MemberForm memberForm) {
+    public String createMember(@Valid @ModelAttribute MemberForm memberForm, BindingResult result) {
 
+        if (result.hasErrors()) {
+            return "members/createMemberForm";
+        }
         Member member = memberForm.toEntity();
-
         memberService.join(member);
 
         return "redirect:/";
+    }
+
+    @GetMapping
+    public String members(Model model) {
+
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("members", members);
+
+        return "/members/memberList";
+
     }
 
 }
