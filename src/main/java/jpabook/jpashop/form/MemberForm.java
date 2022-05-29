@@ -1,4 +1,4 @@
-package jpabook.jpashop.dto;
+package jpabook.jpashop.form;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.embedded.Address;

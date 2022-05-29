@@ -1,7 +1,7 @@
 package jpabook.jpashop.controller;
 
 import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.dto.MemberForm;
+import jpabook.jpashop.form.MemberForm;
 import jpabook.jpashop.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +26,7 @@ public class MemberController {
 
     @GetMapping("/new")
     public String createForm(Model model) {
+
         model.addAttribute("memberForm", new MemberForm());
         return "members/createMemberForm";
     }
