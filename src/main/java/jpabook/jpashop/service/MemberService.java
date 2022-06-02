@@ -44,4 +44,10 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
+    // 회원 수정
+    public void update(Long id, String name) {
+        Member member = this.findOne(id);
+        member.setName(name);
+    }
+
 }
