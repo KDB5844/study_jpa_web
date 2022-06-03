@@ -26,6 +26,10 @@ dependencies {
 	// show log query parameter
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
 
+	// jackson-hibernate
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5'
+
+
 	// validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
