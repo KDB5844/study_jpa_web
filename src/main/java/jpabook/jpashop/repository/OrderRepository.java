@@ -1,8 +1,8 @@
 package jpabook.jpashop.repository;
 
-import jpabook.jpashop.api.OrderSimpleApiController;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.dto.OrderSearch;
+import jpabook.jpashop.dto.OrderSimpleQueryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
@@ -10,6 +10,7 @@ import org.springframework.util.StringUtils;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,8 +93,4 @@ public class OrderRepository {
                 ).getResultList();
     }
 
-    public List<?> finds() {
-
-        return null;
-    }
 }
