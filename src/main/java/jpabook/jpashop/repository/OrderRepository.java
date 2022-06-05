@@ -1,5 +1,6 @@
 package jpabook.jpashop.repository;
 
+import jpabook.jpashop.api.OrderApiController;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.dto.OrderSearch;
 import jpabook.jpashop.dto.OrderSimpleQueryDto;
@@ -93,4 +94,14 @@ public class OrderRepository {
                 ).getResultList();
     }
 
+    public List<Order> findAllWithItem() {
+        return em.createQuery(
+                "select distinct o from Order o" +
+                " join fetch o.member m" +
+                " join fetch o.delivery d" +
+                " join fetch o.orderItems oi" +
+                " join fetch oi.item i" ,Order.class
+                )
+                .getResultList();
+    }
 }
